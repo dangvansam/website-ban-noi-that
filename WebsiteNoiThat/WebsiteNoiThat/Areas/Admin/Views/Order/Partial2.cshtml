@@ -1,0 +1,65 @@
+﻿@model WebsiteNoiThat.Models.OrderViewModel
+
+<div>
+
+    <form id="myForm">
+        @Html.HiddenFor(m => m.OrderDetailId1)
+        @Html.HiddenFor(m => m.OrderId)
+        @Html.HiddenFor(m => m.Price)
+        @Html.HiddenFor(m => m.ProductId)
+        @Html.HiddenFor(m => m.Quantity)
+
+        @Html.DropDownListFor(model => model.StatusId, ViewBag.StatusList as SelectList, "--select--", new { @class = "form-control" })
+
+        <hr />
+
+
+
+        <a href="#" id="btnSubmit" class="btn btn-success btn-block">
+            @if (Model.OrderDetailId1 > 0)
+            {<span>Update</span> }
+            else
+            {<span>Save</span>}
+        </a>
+
+    </form>
+
+    @*<div style="text-align:center;display:none" id="loaderDiv">
+        <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
+    </div>*@
+
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+
+            //$("#loaderDiv").show();
+
+            var myformdata = $("#myForm").serialize();
+
+            $.ajax({
+
+                type: "POST",
+                url: "/Order/Show",
+                data: myformdata,
+                success: function () {
+                    //$("#loaderDiv").hide();                  
+                    $("#myModal").modal("hide");
+                    window.location.href = "/Admin/Order/Show";
+
+                }
+
+            })
+        })
+
+    })
+
+
+</script>
+
+
+

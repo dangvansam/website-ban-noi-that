@@ -1,0 +1,65 @@
+﻿@model Models.EF.Order
+@using WebsiteNoiThat.Areas.Admin.Models
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết hoá đơn: <span style="font-weight:bold">#@Model.OrderId</span></h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <span style="font-weight:normal">@Html.DisplayNameFor(model => model.OrderId)</span>: @Html.DisplayFor(model => model.OrderId)
+        </dt>
+        <dt>
+            <span style="font-weight:normal">@Html.DisplayNameFor(model => model.ShipName)</span>: @Html.DisplayFor(model => model.ShipName)
+        </dt>
+        <dt>
+            <span style="font-weight:normal">@Html.DisplayNameFor(model => model.ShipPhone)</span>: @Html.DisplayFor(model => model.ShipPhone)
+        </dt>
+        <dt>
+            <span style="font-weight:normal">@Html.DisplayNameFor(model => model.ShipEmail)</span>: @Html.DisplayFor(model => model.ShipEmail)
+        </dt>
+        <dt>
+            <span style="font-weight:normal">@Html.DisplayNameFor(model => model.ShipAddress)</span>: @Html.DisplayFor(model => model.ShipAddress)
+        </dt>
+        <dt>
+            <span style="font-weight:normal">@Html.DisplayNameFor(model => model.UpdateDate)</span>: @Html.DisplayFor(model => model.UpdateDate)
+        </dt>
+        <dt>
+            <span style="font-weight:normal">@Html.DisplayNameFor(model => model.StatusId)</span>: @ViewBag.aaaa
+        </dt>
+    </dl>
+    <hr />
+
+    <div >
+    <h4>Danh sách sản phẩm</h4>
+    <table class="table" style="text-align:center">
+        <thead>
+            <tr>
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Giá (đã KM nếu có)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach (OrderProduct p in (List<OrderProduct>)ViewBag.orderproducts)
+                {
+                <tr>
+                    <td scope="row">@p.ProductId</td>
+                    <td>@p.ProductName</td>
+                    <td>@p.Quantity</td>
+                    <td>@p.Price₫</td>
+                </tr>
+            }
+                <tr>
+            </tbody>
+        </table>
+        <a>Tổng tiền thanh toán:<span style="font-weight:bold; color:crimson;">    @ViewBag.total.ToString("N0") ₫</span></a>
+    </div>
+    </div>
+    <br />
+    <button class="btn btn-outline-secondary">@Html.ActionLink("Trở về", "Show")</button>

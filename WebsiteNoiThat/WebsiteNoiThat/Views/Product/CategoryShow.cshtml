@@ -1,0 +1,113 @@
+﻿@model List<Models.EF.Product>
+@{
+    var category = (Models.EF.Category)ViewBag.CategoryShow;
+    ViewBag.Title = category.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Noidungmenu{
+    <h3 id="title_spmoi" style="text-align:center;">@category.Name.ToUpper()</h3>
+    <div class="ct-boxmain row m0">
+        @{ int i = 0;
+            foreach (var sp in Model)
+            {
+                i++;
+                if (sp.Discount != 0 && sp.EndDate > DateTime.Now && sp.StartDate < DateTime.Now)
+                {
+                    <div class="col-xs-6 col-sm-4 col-md-3 p5">
+                        <div class="boxsp">
+                            <div class="imgsp">
+                                <a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })" data-toggle="tooltip" title="@sp.Name"><img class="imgproduct" style="width:200px;height:160px;" src="@Url.Content("~/image/" + sp.Photo)"></a>
+                                <div class="img-label">
+                                    <img style="width:50px;height:50px;" src="~/image/sale-icon.png">
+                                </div>
+                            </div>
+                            <div class="namesp">
+                                <a href="">@sp.Name</a>
+                            </div>
+                            <div class="pricesp"><i>Khuyến mãi @string.Format("{0:#,###.##}", (sp.Price - (sp.Price * sp.Discount * 0.01)))₫</i><br /><strike style="color:dimgray"> @sp.Price.GetValueOrDefault(0).ToString("N0") </strike></div>
+                            <p>Áp dụng từ ngày @string.Format("{0:d}", sp.StartDate) - @string.Format("{0:d}", sp.EndDate)</p>
+                            <div class="button-hd">
+                                <a href="/them-gio-hang?ProductId=@sp.ProductId&quantity=1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                @*<a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })"><i class="fa fa-eye" aria-hidden="true"></i></a>*@
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                else
+                { <div class="col-xs-6 col-sm-4 col-md-3 p5">
+                        <div class="boxsp">
+                            <div class="imgsp">
+                                <a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })" data-toggle="tooltip" title="@sp.Name"><img class="imgproduct" style="width:200px;height:160px;" src="@Url.Content("~/image/" + sp.Photo)"></a>
+                            </div>
+                            <div class="namesp">
+                                <a href="">@sp.Name</a>
+                            </div>
+                            <div class="pricesp">@sp.Price.GetValueOrDefault(0).ToString("N0")₫</div>
+                            <div class="button-hd">
+                                <a href="/them-gio-hang?ProductId=@sp.ProductId&quantity=1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                @*<a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })"><i class="fa fa-eye" aria-hidden="true"></i></a>*@
+                            </div>
+                        </div>
+                    </div>}
+
+                if (i % 4 == 0)
+                {
+                    <div style="clear:both;"></div>
+                }
+
+
+
+            }
+        }
+
+    </div>
+}
+<div class="clearfix"></div>
+
+@if (ViewBag.Totalpage > 1)
+{
+    var pagedisplay = (int)(ViewBag.Maxpage);
+    int total = (int)ViewBag.Totalpage;
+    int currentpage = ((int)ViewBag.Page);
+    var startpage = Math.Max(1, currentpage - pagedisplay / 2);
+    var endpage = Math.Min(total, currentpage + pagedisplay / 2);
+    var link = "/san-pham/" + category.CategoryId;
+    <nav>
+        <ul class="pagination">
+            @if (currentpage > ViewBag.First)
+            {
+                <li><a href="@link?page=@ViewBag.First" title="Trang đầu" class="first"><i class="fa fa-angle-double-left"></i>Trang đầu</a></li>
+                <li><a href="@link?page=@ViewBag.Prev" title="Trang trước" class="prev"><i class="fa fa-angle-left"></i></a></li>
+
+            }
+
+            @for (int j = startpage; j <= endpage; j++)
+            {
+                if (currentpage == j)
+                {
+                    <li><a href="@link?page=@j" class="active" title="Trang @j">@j</a></li>
+                }
+                else
+                {
+                    <li><a href="@link?page=@j" class="pos" title="Trang @j">@j</a></li>
+                }
+
+            }
+            @if (currentpage < total)
+            {
+                <li>  <a href="@link?page=@ViewBag.Next" title="Trang sau" class="next"><i class="fa fa-angle-right"></i></a></li>
+                <li><a href="@link?page=@ViewBag.Last" title="Trang cuối" class="last"><i class="fa fa-angle-double-right"></i>Trang cuối</a></li>
+            }
+
+        </ul>
+    </nav>
+}
+else if (ViewBag.Totalpage < 1)
+{
+    <span>Không có bản ghi nào</span>
+}
+
+
+

@@ -1,0 +1,61 @@
+﻿
+
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<Models.ProductView>
+
+<h3 style="text-align:center" id="title_spmoi">ĐANG KHUYẾN MÃI</h3>
+<div class="ct-boxmain row m0">
+    @{ int i = 0;
+        foreach (var sp in Model)
+        {
+            i++;
+            <div class="col-xs-6 col-sm-4 col-md-3 p5">
+                    <div class="boxsp">
+                        <div class="imgsp">
+                            <a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })" data-toggle="tooltip" title="@sp.Name"><img class="imgproduct" style="width:200px;height:160px;" src="@Url.Content("~/image/" + sp.Photo)"></a>
+                            <div class="img-label">
+                                <img src="~/image/hot.png">
+                            </div>
+                        </div>
+                        <div class="namesp">
+                            <a href="">@sp.Name HOT</a>
+                        </div>
+                        <div class="pricesp">Giá: @sp.Price.GetValueOrDefault(0).ToString("N0")₫</div>
+                        @{
+                            if (sp.Discount > 0)
+                            {
+                                <div class="pricesp" style="color:crimson">Giảm @sp.Discount%: @string.Format("{0:#,###.##}", (sp.Price - (sp.Price * sp.Discount * 0.01)))₫</div>
+                            }
+                        }
+                        <p style="text-align:center">Đã bán: @sp.Quantity</p>
+                        <div class="button-hd">
+                            <a href="/them-gio-hang?ProductId=@sp.ProductId&quantity=1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+            </div>
+            if (i % 4 == 0)
+            {
+                <div style="clear:both;"></div>
+            }
+        }
+    }
+
+</div>
+
+<div style="clear:both;"></div>
+<div>
+    <h5 style="font-size:14px;">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount</h5>
+    <div class="Menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("Sales", new { page = page }))
+    </div>
+</div>
+
+
+<style>
+    .Menutrang li {
+        display: inline;
+    }
+</style>
+
+

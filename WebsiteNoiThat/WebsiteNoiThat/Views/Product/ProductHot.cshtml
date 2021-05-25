@@ -1,0 +1,46 @@
+﻿
+<link href="~/Content/css/style.css" rel="stylesheet" />
+@model List<Models.ProductView>
+<div class="titboxl">
+    <span>Sản phẩm hot</span>
+</div>
+<style>
+.img-label {
+    width: 40px;
+    height: 45px;
+    position: absolute;
+    right: 27px;
+}
+</style>
+@foreach (var sp in Model)
+{
+    <div class="ctboxleft">
+        <div class="boxspl1">
+            <div>
+                <div class="img-label">
+                    <img src="~/image/hot.png">
+                </div>
+                <a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })" data-toggle="tooltip" title="@sp.Name">
+                    <img width="200px" src="@Url.Content("~/image/" + sp.Photo)" alt="">
+                </a>
+            </div>
+            <div>
+                <div class="tit-boxspl">
+                    <a href="@Url.Action("DetailProduct", new { @Id= sp.ProductId })">@sp.Description</a>
+                </div>
+                @if (sp.Discount != 0 && sp.EndDate > DateTime.Now)
+                {
+                    <div class="price-boxspl">@sp.Price.GetValueOrDefault(0).ToString("N0")</div>
+                }
+                else
+                {
+                    <div class="price-boxspl">
+                        <strike><i style="color:dimgray"> @sp.Price.GetValueOrDefault(0).ToString("N0") </i></strike>
+                        <blink>@string.Format("{0:#,###.##}", (sp.Price - (sp.Price * sp.Discount * 0.01)))₫</blink>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+

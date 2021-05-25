@@ -1,0 +1,148 @@
+﻿@model WebsiteNoiThat.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+@using (Html.BeginForm("Register", "RegisterAndLogin", FormMethod.Post))
+
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="breadcrumb-wp">
+            <ol class="breadcrumb">
+                <li><a class="pink" href="#"><i class="fa fa-user-plus"></i></a></li>
+                <li class="active">ĐĂNG KÝ</li>
+            </ol>
+        </div>
+        <hr />
+        <div class="form-group">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            @if (ViewBag.Success != null)
+            {
+                <div class="alert alert-success">@ViewBag.Success</div>
+            }
+        </div>
+
+        <div class="form-group">
+
+
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2 " })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control ", @required = "" })
+
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-lock"></span>
+                    </div>
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @required = "" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-lock"></span>
+                    </div>
+                    @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @required = "" })
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </div>
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @required = "" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-globe"></span>
+                    </div>
+                    @Html.TextAreaFor(model => model.Address, new { @class = "form-control", @required = "" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </div>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @required = "" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-phone"></span>
+                    </div>
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @required = "" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-3">
+
+                @*@Html.Captcha(registerCaptcha)
+                    @Html.TextBox("CaptchaCode")*@
+                @*@Html.Recaptcha()
+                @Html.ValidationMessage("ReCaptcha")*@
+
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đăng ký" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+
+}
+@*<div style="text-align:center">
+    <a href="/RegisterAndLogin/Login"> <input type="submit" value="Đăng nhập" class="btn btn-info" /></a>
+</div>*@

@@ -1,0 +1,102 @@
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\bin\Debug\Models.dll.config
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\bin\Debug\Models.dll
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\bin\Debug\Models.pdb
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\bin\Debug\EntityFramework.dll
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\bin\Debug\EntityFramework.xml
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Models.dll
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Models.pdb
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Interop.SCRIPTOSYSLib.dll
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Interop.ScriptSigner.dll
+C:\Users\nguyen ngoc\source\repos\WebsiteNoiThat\Models\obj\Debug\Models.csproj.ResolveComReference.cache
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll.config
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.pdb
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.SCRIPTOSYSLib.dll
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.ScriptSigner.dll
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.ResolveComReference.cache
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.dll
+C:\Users\Admin\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.pdb
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll.config
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.pdb
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.dll
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.xml
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.SCRIPTOSYSLib.dll
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.ScriptSigner.dll
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.ResolveComReference.cache
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.dll
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.pdb
+C:\Users\LENOVO\Downloads\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Microsoft.QualityTools.Testing.Fakes.dll
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll.config
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.pdb
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.dll
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.xml
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.SCRIPTOSYSLib.dll
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.ScriptSigner.dll
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.ResolveComReference.cache
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CopyComplete
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.dll
+D:\Công nghệ WEB\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.pdb
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll.config
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.pdb
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.dll
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.dll
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.xml
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.xml
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.SCRIPTOSYSLib.dll
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.ScriptSigner.dll
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.ResolveComReference.cache
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CopyComplete
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.dll
+J:\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.pdb
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll.config
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.pdb
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.dll
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.xml
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.SCRIPTOSYSLib.dll
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.ScriptSigner.dll
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.ResolveComReference.cache
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CopyComplete
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.dll
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.pdb
+D:\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll.config
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.dll
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\Models.pdb
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.dll
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.xml
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.SCRIPTOSYSLib.dll
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Interop.ScriptSigner.dll
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.ResolveComReference.cache
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.csproj.CopyComplete
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.dll
+D:\CODE CŨ\CNWebNC\NguyenThiNgoc_HTTT2\WebsiteNoiThat\Models\obj\Debug\Models.pdb

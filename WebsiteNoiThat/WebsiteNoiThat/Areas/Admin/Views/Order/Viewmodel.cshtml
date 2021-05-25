@@ -1,0 +1,167 @@
+﻿@model IEnumerable<WebsiteNoiThat.Models.OrderViewModel>
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thống kê - báo cáo</h2>
+
+
+<title>Thống kê báo cáo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js" data-semver="2.0.3" data-require="jquery"></script>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js" data-server="2.0.3" data-require="jquery"></script>
+<script src="http://code.jquery.com/jquery-1.12.4.js" data-server="1.12.4" data-require="jquery"></script>
+
+@using (Html.BeginForm("Viewmodel", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-check-inline">
+        Từ <input type="date" class="form-control col-md-4" style="margin-left: 10px; margin-right: 10px;" id="dfr" name="dfr">
+        Đến <input type="date" class="form-control col-md-4" style="margin-left: 10px; margin-right: 10px;" id="dto" name="dto">
+        <input type="submit" value="Xem" class="btn btn-primary" />
+    </div>
+    <hr>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+
+            <div class="table-responsive">
+                <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+                    <thead>
+                        <tr class="Search">
+                            <th>Mã hóa đơn</th>
+                            <th>Tên KH</th>
+                            <th>(%)Khuyến mãi</th>
+                            @*<th>Thành tiền</th>*@
+                            <th>Địa chỉ</th>
+                            <th>SĐT</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày cập nhật</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr class="Search">
+
+                            <td> @item.OrderId</td>
+                            <td>@item.ShipName</td>
+                            <td>@item.Discount</td>
+                            @*<td>@((item.Quantity * item.Price).GetValueOrDefault(0).ToString("N0"))</td>*@
+                            <td>@item.ShipAddress</td>
+                            <td>@item.ShipPhone</td>
+                            <td>@item.StatusName</td>
+                            <td>@item.UpdateDate</td>
+                            <td width="60px">
+                                <input type="button" class="btn btn-sm btn-primary" value="Xem" onclick="location.href='/Admin/Order/Details/@item.OrderId'" />
+                                <input type="button" class="btn btn-sm btn-warning" value="In" onclick="location.href='/Admin/Order/PrintSalarySlip/@item.OrderId'" />
+                            </td>
+                        </tr>
+                        }
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="7" style="text-align:right">Tổng tiền:</th>
+                            <th> @ViewBag.total.ToString("N0")₫</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var table = $('#example').DataTable({
+
+            //lengthChange: false,
+            buttons: [
+                { extend: 'copyHtml5', footer: true },
+                { extend: 'excelHtml5', footer: true },
+                { extend: 'csvHtml5', footer: true },
+                { extend: 'pdfHtml5', footer: true }
+            ],
+            //"oLanguage": {
+            //    "sSearch": "Filter Data"
+            //},
+            //"iDisplayLength": -1,
+            //"sPaginationType": "full_numbers",
+            //buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
+            "footerCallback": function (row, data, start, end, display) {
+                var api = this.api(), data;
+
+                // Remove the formatting to get integer data for summation
+                var intVal = function (i) {
+                    return typeof i === 'string' ?
+                        i.replace(/[\$,]/g, '') * 1 :
+                        typeof i === 'number' ?
+                            i : 0;
+                };
+
+                //total = api
+                //    .column(7)
+                //    .data()
+                //    .reduce(function (a, b) {
+                //        return intVal(a) + intVal(b);
+                //    }, 0);
+                //pageTotal = api
+                //    .column(7, { page: 'current' })
+                //    .data()
+                //    .reduce(function (a, b) {
+                //        return intVal(a) + intVal(b);
+                //    }, 0);
+
+                //// Update footer
+                //$(api.column(7).footer()).html(
+                //    '' + pageTotal + ' ( ' + total + ' total)'
+                //);
+
+            }
+
+        });
+        table.buttons().container()
+            .appendTo('#example_wrapper .col-md-6:eq(0)');
+
+
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+

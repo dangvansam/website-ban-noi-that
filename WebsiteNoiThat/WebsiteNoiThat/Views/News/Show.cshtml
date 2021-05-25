@@ -1,0 +1,18 @@
+﻿@model Models.EF.News
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="primary-content">
+    <h1 class="entry-title">@Model.Title</h1>
+    <ul class="entry-meta">
+        <li class="date">@Model.DateUpdate</li>
+
+    </ul>
+    <p style="padding-left:200px;"><img style="width:500px;height:200px; " src="@Url.Content("~/image/" + Model.Photo)" alt="website template image"></p>
+    <p class="lead">
+        @Model.Detail
+
+      </p>
+</div>

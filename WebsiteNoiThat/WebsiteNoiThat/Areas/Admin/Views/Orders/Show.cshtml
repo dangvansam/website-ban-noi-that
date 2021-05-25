@@ -1,0 +1,94 @@
+﻿@using WebsiteNoiThat.Areas.Admin.Models
+@model IEnumerable<OrderView>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách đơn đặt hàng</h2>
+<br />
+@*<p>
+        <a href="@Url.Action("Add", "Provider")" class="btn btn-primary" style="margin-top:20px;margin-bottom:15px;">Thêm nhà cung cấp</a>
+    </p>*@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.OrderId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ShipName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ShipPhone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ShipEmail)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UpdateDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ShipAddress)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StatusName)
+                        </th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr class="Search">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.OrderId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipPhone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipEmail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UpdateDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShipAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StatusName)
+                            </td>
+                            <td width="200px">
+                                <input type="button" class="btn btn-sm btn-primary" value="Xem" onclick="location.href='/Admin/Orders/Details/@item.OrderId'" />
+                                <input type="button" class="btn btn-sm btn-warning" value="Cập nhật" onclick="location.href='/Admin/Orders/Edit/@item.OrderId'" />
+                                <input type="button" class="btn btn-sm btn-danger" value="Xóa" onclick="location.href='/Admin/Orders/Delete/@item.OrderId'" />
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Content/DataTable/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/DataTable/js/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $('#example').DataTable();
+</script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>

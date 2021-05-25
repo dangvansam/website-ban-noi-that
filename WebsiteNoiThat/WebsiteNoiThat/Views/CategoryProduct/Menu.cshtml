@@ -1,0 +1,31 @@
+﻿@model List<Models.EF.Category>
+@*<ul class="mnboxl">
+    @foreach (var item in Model.Where(n => n.ParId==0))
+    {
+        var child = Model.Where(n => n.ParId == item.CategoryId);
+        var childparent = child.Count() > 0;
+        <li>
+            <a href="/san-pham/@item.CategoryId"@childparent>@item.Name</a>
+            @if (child.Count() > 0)
+            {
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                <ul class="mnboxl_1">
+                    @foreach (var children in child)
+                    {
+                        <li><a href="/san-pham/@children.CategoryId">@children.Name</a></li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+</ul>*@
+
+<div class="dropdown-menu" aria-labelledby="dropdown_category">
+    @foreach (var item in Model.Where(n => n.ParId == 0))
+    {
+        var child = Model.Where(n => n.ParId == item.CategoryId);
+        var childparent = child.Count() > 0;
+        <a class="dropdown-item" href="/danh-muc/@item.CategoryId" @childparent style="font-weight:normal">@item.Name</a>
+    }
+
+</div>

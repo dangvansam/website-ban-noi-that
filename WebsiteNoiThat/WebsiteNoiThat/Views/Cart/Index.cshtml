@@ -1,0 +1,61 @@
+﻿@model List<WebsiteNoiThat.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Scripts/cartcontroller.js"></script>
+}
+
+<h3 id="title_spmoi" style="text-align:center;">Giỏ hàng</h3>
+
+<div class="content" style="text-align:center">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Giảm giá</td>
+                        <td>Thành tiền</td>
+                        <td>Trạng thái</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Product.ProductId</td>
+                            <td>@item.Product.Name</td>
+                            <td><img src="@Url.Content("~/image/" + item.Product.Photo)" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Product.ProductId" value="@item.Quantity" onchange="@item.Quantity" /></td>
+                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")₫</td>
+                            <td>@item.Product.Discount%</td>
+                            <td>@string.Format("{0:#,###.##}", ((item.Product.Price - (item.Product.Price * item.Product.Discount * 0.01)) * item.Quantity))₫</td>
+                            @*<td style="color:darkslategray">@ViewBag.Status</td>*@
+                            <td><a href="#" data-id="@item.Product.ProductId" class="btn btn-danger">Xoá</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <hr />
+            <br />
+            <button id="btnDeleteAll" class="btn btn-danger">Xoá giỏ hàng</button>
+            <button id="btnPayment" class="btn btn-success">Gửi đơn hàng</button>
+            <button id="btnContinue" class="btn btn-secondary">Tiếp tục mua hàng</button>
+        }
+        else
+        {
+            <hr />
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+    </div>
+</div>
+

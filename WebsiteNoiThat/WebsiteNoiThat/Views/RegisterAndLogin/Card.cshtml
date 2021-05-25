@@ -1,0 +1,69 @@
+﻿@model Models.EF.Card
+@{
+    ViewBag.Title = "Đăng ký thẻ tích điểm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+@using (Html.BeginForm("Card", "RegisterAndLogin", FormMethod.Post))
+
+{
+   
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="breadcrumb-wp">
+        <ol class="breadcrumb">
+            <li><a class="pink" href="#"><i class="fa fa-user-plus"></i></a></li>
+            <li class="active">ĐĂNG KÝ THẺ TÍCH ĐIỂM</li>
+        </ol>
+    </div>
+    <hr />
+    <a href="/RegisterAndLogin/Login">Bỏ qua đăng ký thẻ tích điểm </a><br />
+    <div class="form-group">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        @if (ViewBag.Success != null)
+        {
+            <div class="alert alert-success">@ViewBag.Success</div>
+        }
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-1">
+            <div class="input-group">
+                <h4>Mã khách hàng:<i> @Html.EditorFor(model => model.UserId, new { @class = "form-control ", @required = "" })</i></h4>
+                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-md-offset-1">
+            <div class="input-group">
+                <h4>Chứng minh thư: <i>@Html.EditorFor(model => model.Identification, new { @class = "text-danger", @required = "" })</i></h4>
+                @Html.ValidationMessageFor(model => model.Identification, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-1">
+            <div class="input-group">
+                <h4>Thẻ tích điểm: @Html.ValueFor(model => model.NumberCard)</h4>
+                @Html.ValidationMessageFor(model => model.NumberCard, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Đăng ký" class="btn btn-success" />
+
+        </div>
+    </div>
+</div>
+
+}
+

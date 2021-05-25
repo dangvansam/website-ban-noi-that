@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nội Thất Cao Cấp</title>
+
+    <link href="~/Content/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/css/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+    <link href="~/Content/css/Slider.css" rel="stylesheet" />
+    <link href="~/Scripts/jquery-ui.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+    <link href="~/Content/css/nivo-slider.css" rel="stylesheet" />
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/css/owl.theme.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    @*<link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />*@
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>*@
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+
+</head>
+<body>
+    <header id="header">
+        <div class="topbar">
+            <p>Hotline Mua Hàng: <a href="tel:0968 012 687">0968 012 687</a> | Hotline CSKH: <b>0968 012 687</b> | Email CSKH: <b>dangvansam98@gmail.vn</b></p>
+        </div>
+
+        <div class="header">
+            @*logo header*@
+            <br />
+            <br />
+            <div class="container">
+                @*search*@
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <form action="/tim-kiem" method="get">
+                        <div id="div_seach">
+                            <button id="btn_search" type="submit"><img id="search_icon" src="~/Content/client/assets/img/search.png" /></button>
+                            <input id="input_search" type="text" class="form-control" id="txtKeyword" name="keyword" placeholder="Tìm kiếm" />
+                            <script src="~/Scripts/basecontroller.js"></script>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+                @*logo*@
+                <div class="col-xs-12 col-md-4">
+                    <div id="logo">
+                        @*<a href="/"><img src="~/image/logo.png" alt=""></a>*@
+                        <a style="FONT-SIZE: xx-large; font-weight:bold;">NOITHATGO.VN</a>
+                    </div>
+                </div>
+                @*account, cart*@
+                <div id="account_cart">
+                    <button id="btn_account">
+                        @{ Html.RenderAction("ViewLogin", "RegisterAndLogin");}
+                    </button>
+                    <button id="btn_cart">
+                        <a href="/gio-hang">
+                            <img src="~/Content/client/assets/img/shopping.png" />@{ Html.RenderAction("HeaderCart", "Home");}
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <br />
+
+            @*end logo header*@
+        </div>
+
+        <nav id="mainmenu" class="hidden-xs hidden-sm ">
+            <div class="container" style="text-align: center;">
+                <ul class="x1">
+                    <li><a href="/Home/Index">Trang chủ</a></li>
+                    <li>
+                        <div class="dropdown" >
+                            <a class="btn dropdown-toggle" id="dropdown_category" data-toggle="dropdown" style="margin-top: -5px;">Danh Mục</a>
+                            @{ Html.RenderAction("Menu", "CategoryProduct");}
+                        </div>
+                    </li>
+                    <li><a href="/Product/ShowProduct/">Sản phẩm</a></li>
+                    <li><a href="/Product/Hots">Hot nhất</a></li>
+                    <li><a href="/Product/Sales">Khuyến mãi</a></li>
+                    <li><a href="/Contact/Contacts">Liên hệ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="home">
+        <div class="container">
+            <section id="featured">
+                @*slider*@
+                <div >
+                    <div>
+                        <img class="slider" src="~/image/slide1.jpg" stt="0" alt="" />
+                        <img class="slider" src="~/image/slide2.jpg" stt="1" alt="" style="display:none;" />
+                        <img class="slider" src="~/image/slide3.jpg" alt="" stt="2" style="display:none;" />
+                        <img class="slider" src="~/image/slide4.jpg" alt="" stt="3" style="display:none;" />
+                        <a href="" id="prev"><img src="~/image/Previous-icon.png" /></a>
+                        <a href="" id="next"><img src="~/image/Next-2-2-icon.png" /></a>
+                    </div>
+                </div>
+                @*banner*@
+                <div class="banner clearfix">
+                    <div class="col-xs-12 col-sm-6">
+                        <img src="~/images/banner1.png" alt="">
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <img src="~/images/banner2.png" alt="">
+                    </div>
+                </div>
+            </section>
+            @*main*@
+            <section id="main">
+                @*left pannel*@
+                <div id="left" class="col-xs-12 col-sm-4 col-md-3">
+                    @*search by price*@
+                    <div class="boxleft hidden-xs">
+                        <div class="titboxl">
+                            @*<i class="fa fa-random fa-x2 fa-lg" aria-hidden="true"></i>*@
+                            <span>Mức Giá</span>
+                        </div>
+                        <div class="ctboxleft">
+                            <div class="boxspl" style="text-align:left;">
+                                <form action="/Product/SearchFocus" method="get">
+                                    <div style="margin-left: 40px;">
+
+                                    <input type="checkbox" class="form-check-input" id="check0" name="check0" value="true">
+                                    <label class="form-check-label" for="check0">Dưới 5 Triệu</label>
+                                    <br />
+                                    <input type="checkbox" class="form-check-input" id="check1" name="check1" value="true">
+                                    <label class="form-check-label" for="check1">5 Triệu - 10 Triệu</label>
+                                    <br />
+                                    <input type="checkbox" class="form-check-input" id="check2" name="check2" value="true">
+                                    <label class="form-check-label" for="check2">10 Triệu - 20 Triệu</label>
+                                    <br />
+                                    <input type="checkbox" class="form-check-input" id="check3" name="check3" value="true">
+                                    <label class="form-check-label" for="check3">20 Triệu - 50 Triệu</label>
+                                    <br />
+                                    <input type="checkbox" class="form-check-input" id="check4" name="check4" value="true">
+                                    <label class="form-check-label" for="check4">Trên 50 Triệu</label>
+
+                                    </div>
+                                    <input type="submit" class="btn btn-secondary" value="Xem" style="font-size: unset; width: 100%" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @*hot product*@
+                    <div class="boxleft hidden-xs">
+                        @Html.Action("ProductHot", "Product")
+                    </div>
+                    @*news*@
+                    <div class="boxleft hidden-xs">
+                        <div class="titboxl">
+                            <i class="fa fa-rss-square fa-x2 fa-lg" aria-hidden="true"></i>
+                            <span>Tin tức</span>
+                        </div>
+                        <div class="ctboxleft">
+                            <div id="slider-tintuc" class="owl-carousel">
+                                @Html.Action("NewsHot", "News")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*end left pannel*@
+
+                @*main screen*@
+                <div id="maincontent" class="col-xs-12 col-sm-8 col-md-9">
+                    @RenderSection("Noidungbenphai", required: false)
+                    @RenderSection("Noidungmenu", required: false)
+                    @RenderBody()
+                </div>
+                @*end main screen*@
+
+            </section>
+
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="f1" style="text-align:center">
+                <div class="col-xs-12 col-sm-3">
+                    <div class="tit-boxmain">
+                        <h3><span>Studio Nội Thất</span></h3>
+                    </div>
+                    <div class="ct-boxft1">
+                        <p><span>Đẹp - Sang Trọng - Tinh tế</span></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <div class="tit-boxmain">
+                        <h3><span>Về chúng tôi</span></h3>
+                    </div>
+                    <div class="ct-boxft1">
+                        <ul>
+                            <li><a href="">Giới thiệu</a></li>
+                            <li><a href="">Chính sách & Quy định</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <div class="tit-boxmain">
+                        <h3><span>Hỗ trợ</span></h3>
+                    </div>
+                    <div class="ct-boxft1">
+                        <ul>
+                            <li><a href="">Chính sách vận chuyển</a></li>
+                            <li><a href="">Chính sách thanh toán</a></li>
+                            <li><a href="">Bản đồ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-2">
+                    <div class="tit-boxmain">
+                        <h3><span>Mạng xã hội</span></h3>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="tit-boxmain">
+                        <h3><span>Facebook</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @*khi move qua cart*@
+    <script type="text/javascript">
+        $("#btn_cart").hover(function () {
+            $(".top-cart-content").css("display", "block");
+        }, function () {
+            $(".top-cart-content").css("display", "none");
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var stt = 0;
+            starimg = $("img.slider:first").attr("stt")
+            endimg = $("img.slider:last").attr("stt")
+
+            $("img.slider").each(function () {
+                if ($(this).is(':visible'))
+                    stt = $(this).attr("stt");
+            });
+            $("#next").click(function () {
+                if (stt == endimg) {
+                    stt = -1;
+                }
+                next = ++stt;
+                $("img.slider").hide();
+                $("img.slider").eq(next).show();
+            });
+            $("#prev").click(function () {
+                if (stt == 0) {
+                    stt = endimg;
+                    prev = stt++;
+                }
+                prev = --stt;
+                $("img.slider").hide();
+                $("img.slider").eq(next).show();
+            });
+            setInterval(function () {
+                $("#next").click()
+            }, 2000);
+        })
+    </script>
+
+    <!-- Owl Carousel Assets -->
+
+    <script src="~/Content/css/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#slider-tintuc").owlCarousel({
+                autoPlay: 3000,
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+            });
+            $("#spmoi").owlCarousel({
+                autoPlay: 3000,
+                // items : 4,
+                //  itemsDesktop : [1199,3],
+                //  itemsDesktopSmall : [979,3],
+                //  itemsMobile : [768,2]
+                itemsCustom: [
+                    [0, 2],
+                    [600, 3],
+                    [1200, 4],
+                ],
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        // hidden-show children menu
+        $(document).ready(function () {
+            //use event delegation since classes are changed dynamically
+            $('.ulspmobi').on('click', '.iconlist', function () {
+                //remove the show class and assign hidden
+                $(this).toggleClass('iconlist1 iconlist');
+                //the subfield is a child of the parent not the next sibling
+                $(this).siblings('ul.mnboxl_1').show('slow');
+            });
+            $('.ulspmobi').on('click', '.iconlist1', function () {
+                $(this).toggleClass('iconlist1 iconlist');
+                $(this).siblings('ul.mnboxl_1').hide('slow');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready()
+        {
+
+            $("#mymodaldangky").click(function () {
+
+                $("#mymodaldangky").modal('show');
+            });
+
+
+
+        }
+    </script>
+    @RenderSection("jsFooter", required: false)
+</body>
+</html>

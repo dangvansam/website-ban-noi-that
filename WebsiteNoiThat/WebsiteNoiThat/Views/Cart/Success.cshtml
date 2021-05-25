@@ -1,0 +1,46 @@
+﻿@model List<WebsiteNoiThat.Models.CartItem>
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<div class="content">
+    <div class="section group">
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td>Trạng thái</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Product.ProductId</td>
+                            <td>@item.Product.Name</td>
+                            <td><img src="@Url.Content("~/image/" + item.Product.Photo)" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.Product.ProductId" value="@item.Quantity" /></td>
+                            <td>@item.Product.Price.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@string.Format("{0:#,###.##}",((item.Product.Price - (item.Product.Price * item.Product.Discount * 0.01)) * item.Quantity))</td>
+                            <td style="color:aqua">@ViewBag.Status</td>
+                            <td><a href="#" data-id="@item.Product.ProductId" class="btn-delete">Xoá</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    </div>*@
+    <div class="alert alert-success" style="text-align:center">
+        Bạn vừa đặt hàng thành công
+    </div>
+
+    

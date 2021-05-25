@@ -1,0 +1,28 @@
+﻿#Slider {
+    margin: -10px auto;
+    padding-top: 50px;
+    width: 900px;
+    height: 450px;
+    border: 1px solid #808080;
+    position: relative;
+}
+
+.slider {
+    top: 20px;
+    width: 100%;
+    /*height: 460px;*/
+}
+
+#prev {
+    text-transform: uppercase;
+    top: 320px;
+    left: 15%;
+    position: absolute;
+}
+
+#next {
+    text-transform: uppercase;
+    top: 320px;
+    right: 15%;
+    position: absolute;
+}

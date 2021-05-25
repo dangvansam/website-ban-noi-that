@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Models.EF.Role>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách chức năng</h2>
+
+<p>
+    <input type="button" class="btn btn-success" value="Thêm chức năng" onclick="location.href='@Url.Action("Create", "Roles")'" />
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <input type="button" class="btn btn-sm btn-primary" value="Sửa" onclick="location.href='@Url.Action("Edit", "Roles", new { id=item.RoleId })'" /> |
+            <input type="button" class="btn btn-sm btn-danger" value="Xóa" onclick="location.href='@Url.Action("Delete", "Roles", new { id=item.RoleId })'" />
+        </td>
+    </tr>
+}
+
+</table>

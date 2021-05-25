@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Models.EF.Provider>
+
+@{
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách nhà cung cấp</h2>
+<p>
+    <a href="@Url.Action("Add", "Provider")" class="btn btn-primary" style="margin-top:20px;margin-bottom:15px;">Thêm nhà cung cấp</a>
+</p>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Mã nhà cung cấp</th>
+                        <th>Tên nhà cung cấp</th>
+                        <th>Địa chỉ</th>
+                        <th>Số điện thoại</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                    <tr class="Search">
+                        <td> @item.ProviderId</td>
+                        <td> @item.Name</td>
+                        <td>@item.Address</td>
+                        <td>@item.Phone</td>
+                        <td width="120px;">
+                            <input type="button" class="btn btn-sm btn-primary" value="Sửa" onclick="location.href='/Admin/Provider/Edit?ProviderId=@item.ProviderId'" /> |
+                            <input type="button" class="btn btn-sm btn-danger" value="Xóa" onclick="location.href='/Admin/Provider/Delete?ProviderId=@item.ProviderId'" />
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Content/DataTable/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/DataTable/js/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+    $('#example').DataTable();
+</script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+

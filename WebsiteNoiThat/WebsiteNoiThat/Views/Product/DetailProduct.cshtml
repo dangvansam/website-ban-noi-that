@@ -1,0 +1,210 @@
+﻿
+
+@model  Models.EF.Product
+
+
+<style>
+    .zoom{transition:transform .2s;}
+    .zoom:hover{transform: scale(1.1);}
+</style>
+@section Noidungbenphai{
+    <table class="chitietsp">
+        <h3 id="title_spmoi" style="text-align:center">@Model.Name.ToUpper()</h3>
+        <br />
+        <tr>
+            <td rowspan="5">
+                <img style="width:300px" id="zoom_04" class="zoom" src="@Url.Content("~/image/" + Model.Photo)" alt="image" />
+            </td>
+            <td>
+                <h3>Mã sản phẩm: @Model.ProductId</h3>
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <p class="status">Tên sản phẩm: <span class="pink">@Model.Name</span></p>
+            </td>
+        </tr>
+        <tr>
+            @if (Model.Quantity > 0)
+            {
+                <td>
+                    <p class="status">Tình trạng: <span class="pink">còn @Model.Quantity sản phẩm</span></p>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <p class="status">Tình trạng: <span class="pink">Hết hàng</span></p>
+                </td>
+            }
+        </tr>
+        <tr>
+            <td>
+                <p class="status">Giá: <span class="pink">@string.Format("{0:#,###.##}", Model.Price)₫</span></p>
+                @{
+                    if (Model.Discount > 0)
+                    {
+                        <p class="status">Giá KM (@Model.Discount%): <span class="pink">@string.Format("{0:#,###.##}", (Model.Price - (Model.Price * Model.Discount * 0.01)))₫</span></p>
+                    }
+                }
+                @*<p>Từ @Model.StartDate đến @Model.EndDate</p>*@
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="form-group">
+                    <a style="font-family:unset;" href="/them-gio-hang?productid=@Model.ProductId&quantity=1" class="btn btn-primary fa fa-cart-plus"> Đặt mua hàng</a>
+                </div>
+            </td>
+        </tr>
+    </table>
+}
+<hr>
+<div class="row">
+
+    <div class="short-des col-sm-12 col-xs-12">
+        <ul class="nav nav-tabs" style="font-size:17px">
+            <li class="nav active"><a href="#produc-des" data-toggle="tab"> Mô tả sản phẩm</a></li>
+            <li class="nav"><a href="#tab-gh" data-toggle="tab"> Giao hàng </a></li>
+            <li class="nav"><a href="#tab-th" data-toggle="tab"> Trả hàng </a></li>
+            <li class="nav"><a href="#tab-bh" data-toggle="tab"> Bảo hành </a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content" style="margin-top:15px; margin-bottom:10px">
+            <div class="tab-pane fade in active" id="produc-des">
+                <h2>@Model.Description</h2>
+            </div>
+            <div class="tab-pane fade" id="tab-gh">
+                <div align="justify">
+                    <p>
+                        <font><strong>I. Vận chuyển/ shipping</strong></font>
+                    </p>
+                    <p>
+                        <font ><strong>A. Gói tiết kiệm:</strong> </font><br>
+                        <br>
+                        - Địa điểm: nơi xe tải 2 tấn (hẻm rộng &gt; 5m) có thể vào được.
+                    </p>
+                    <p>
+                        - Đưa hàng nặng, cồng kềnh lên lầu cao ( hoặc chung cư bằng thang bộ): Quý Khách xin vui lòng sử dụng gói giao theo yêu cầu ở dưới đây<br>
+                        - Thời gian giao hàng: trong vòng 5 ngày đối với nội thành ( 12 ngày đối với ngoại tỉnh) kể từ ngày xác nhận đơn hàng. Bộ phận giao hàng sẽ thông báo giờ giao hàng trước 1 ngày. <br>
+                        <br>
+                        <strong><font >B. Gói dịch vụ: </font></strong><br>
+                        - Địa điểm giao hàng: đường cấm xe tải, vào hẻm nhỏ, hoặc khiêng vác lên tầng lầu cao cần ít nhất 2 người.
+                    </p>
+                    <p>
+                        - Thời gian giao hàng: giao ngay trong ngày theo giờ yêu cầu nếu hàng có sẵn tại kho trung chuyển.
+                    </p>
+                    <p>
+                        &nbsp;
+                    </p>
+                    <p>
+                        <font ><strong>2. Lắp ráp/ installation</strong></font>
+                    </p>
+                    <p>
+                        - Giá vận chuyển trên đây đã gồm kèm dịch vụ lắp ráp miễn phí đối với các thành phố có kho trung chuyển.
+                    </p>
+
+                    <p>
+                        - QUý khách cần các dịch vụ khác như khoan bắt lên tường, tháo bỏ đồ cũ, cắt thêm kính... Quý khách vui lòng liên hệ trước với chúng tôi để biết chi phí cụ thể.
+                    </p>
+                    <p>
+                        <font>* Thông tin hữu ích: </font>Tất cả các sản phẩm đồ gỗ tại Studionoithat.com được thiết kế theo tiêu chuẩn quốc tế. Các liên kết, lỗ ốc vít, số lượng ốc cũng được thiết kế và tính toán chính xác để mọi người đều có thể tự mình lắp ráp một cách dễ dàng.
+                    </p>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tab-th">
+                <p align="justify">
+                    Đổi trả khi hàng hóa không đúng chất lượng công bố
+                </p>
+                <p align="justify">
+                    Để đảm bảo quyền lợi của khách hàng và trách nhiệm của bên vận chuyển, khách hàng cần kiểm tra hàng hóa kỹ khi nhận hàng. Ngay khi nhận hàng, Quý khách có thể yêu cầu đổi hàng nếu hàng không đảm bảo chất lượng.
+                </p>
+                <p align="justify">
+                    Đổi trả khi không phù hợp với căn nhà
+                </p>
+                <p align="justify">
+                    Ngay khi giao hàng, Quý khách vẫn có thể trả hàng nếu sản phẩm không phù hợp với nội thất chung, Quý Khách sẽ phải thanh toán chi phí vận chuyển:
+                </p>
+                <p align="justify">
+                    + Chi phí vận chuyển. Trong trường hợp Quý khách đổi ý sau&nbsp; khi xe giao hàng đã đi thì Quý khách sẽ phải trả chi phí vận chuyển 2 chiều ( chiều đi và chiều về) để công ty điều xe khác đến lấy lại hàng. Lưu ý, khi trả lại hàng, bao bì và linh kiện kèm theo phải đầy đủ. Chi phí bao bì trên thị trường hiện nay rất đắt ( thường 1 thùng carton lớn khoảng hơn 100.000 Đ) do vậy, cần bảo quản kỹ thùng khi quyết định trả hàng.
+                </p>
+                <p align="justify">
+                    + Quý khách sẽ không được trả lại tiền hàng sau khi đã hoàn tất thanh toán.
+                </p>
+
+                <p align="justify">
+                    <font style="font-weight: bold; color: rgb(255, 0, 255);">Trường hợp không được trả hàng</font>
+                </p>
+                <p align="justify">
+                    Trong bất kể trường nào sau khi hoàn tất việc giao hàng và thanh toán tiền mua hàng, chúng tôi không chấp thuận việc đổi hay trả hàng do đã hoàn tất việc thanh toán cho nhà máy.
+                </p>
+                <p align="justify">
+                    Trường hợp sản phẩm mất bao bì, không còn nguyên vẹn hoặc hư hỏng do lỗi khách hàng Studionoithat.com có quyền từ chối việc trả hàng như trên.
+                </p>
+            </div>
+            <div class="tab-pane fade" id="tab-bh">
+                <p>
+                    <strong>Thời hạn bảo hành theo quy định của nhà máy</strong>
+                </p>
+                <p>
+                    Mọi sản phẩm của chúng tôi được bảo hành trong vòng 6 tháng kể từ ngày ghi trên phiếu giao hàng.
+                </p>
+                <p>
+                    <strong>Các lỗi được bảo hành trong 6 tháng</strong>
+                </p>
+                <p>
+                    a. Gãy vỡ do thiết kế hoặc có lỗi trong quá trình sản xuất. Không bảo hành nếu sử dụng sản phẩm sai mục đích.
+                </p>
+                <p>
+                    b. Sơn bị bong tróc do không dính vào gỗ.
+                </p>
+                <p>
+                    c. Sản phẩm bị mối mọt ăn từ phía trong gỗ ra.
+                </p>
+                <p>
+                    <strong>Phương thức bảo hành</strong>
+                </p>
+                <p>
+                    Tùy theo mức độ hư hỏng chúng tôi sẽ tiến hành theo thứ tự các ưu tiên như sau:
+                </p>
+                <p>
+                    1. Sơn dặm, sửa, gia cố sản phẩm: thực hiện trong vòng 1 tuần
+                </p>
+                <p>
+                    2. Đổi sản phẩm tương tự: thực hiện trong vòng 2 tuần nếu sản phẩm đang có sẵn hàng trên web.
+                </p>
+                <p>
+                    3. Hoàn lại tiền sản phẩm không gồm phí vận chuyển: thực hiện trong vòng 1 tháng kể từ ngày thông báo không còn hàng để thay thế.
+                </p>
+                <p>
+                    <strong>Thủ tục bảo hành</strong>
+                </p>
+                <p>
+                    1. Liên hệ với bộ phận bán hàng để cung cấp các thông tin: thông tin liên hệ, lỗi bị hư hỏng, mã số đơn hàng.
+                </p>
+                <p>
+                    2. Sản phẩm chỉ được bảo hành tại nhà máy. Chúng tôi sẽ thu xếp hẹn ngày nhận sản phẩm để bảo hành trong vòng 7 ngày. Chúng tôi không chịu chi phí vận chuyển nhận và đổi sản phẩm bảo hành. Chi phí vận chuyển tính theo chính sách tính phí vận chuyển giao hàng tiêu chuẩn.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#zoom_04").ezPlus();
+    });
+</script>*@
+<hr/>
+<div class="boxmain" >
+    @Html.Action("NewProduct", "Product")
+    @Html.Action("CateKorea", "Product")
+    @Html.Action("CateHavana", "Product")
+</div>
+

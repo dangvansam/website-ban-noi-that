@@ -1,0 +1,32 @@
+﻿@model List<Models.EF.Category>
+<ul class="mnboxl">
+    @foreach (var item in Model.Where(n => n.ParId ==0))
+    {
+        var child = Model.Where(n => n.ParId == item.CategoryId);
+        var childparent = child.Count() > 0;
+        <li>
+
+            <a href="/Admin/Product/Show?CateId=@item.CategoryId" @childparent>@item.Name</a>
+
+            @if (child.Count() > 0)
+            {
+                <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                <ul class="mnboxl_1">
+
+                    @foreach (var children in child)
+                    {
+                        <li><a href="/Admin/Product/Show?CateId=@children.CategoryId">@children.Name</a></li>
+                    }
+
+
+                </ul>
+            }
+
+
+        </li>
+
+
+    }
+</ul>
+
+

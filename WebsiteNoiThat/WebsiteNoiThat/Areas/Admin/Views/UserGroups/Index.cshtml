@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Models.EF.UserGroup>
+
+@{
+    ViewBag.Title = "Quản lý Nhóm người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Quản lý Nhóm người dùng</h2>
+
+<p>
+    <input type="button" class="btn btn-success" value="Thêm Nhóm người dùng" onclick="location.href='@Url.Action("Create", "UserGroups")'" />
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <input type="button" class="btn btn-sm btn-primary" value="Sửa" onclick="location.href='@Url.Action("Edit", "UserGroups", new { id=item.GroupId })'" /> |
+            <input type="button" class="btn btn-sm btn-danger" value="Xóa" onclick="location.href='@Url.Action("Delete", "UserGroups", new { id=item.GroupId })'" />
+        </td>
+    </tr>
+}
+
+</table>

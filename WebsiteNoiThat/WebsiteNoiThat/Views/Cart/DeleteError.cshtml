@@ -1,0 +1,56 @@
+﻿@model List<WebsiteNoiThat.Models.HistoryCart>
+@{
+    ViewBag.Title = "Lỗi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Scripts/cartcontroller.js"></script>
+
+}
+    <div class="alert alert-danger">
+      Không thể hủy đơn hàng. Quý khách vui lòng liên hệ đến số điện thoại 19001009 để hủy trực tiếp.
+    </div>
+<div class="content">
+    <div class="section group">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Mã SP</td>
+                        <td>Tên SP</td>
+                        <td>Ảnh SP</td>
+                        <td>Số lượng</td>
+                        <td>Đơn giá</td>
+                        <td>Thành tiền</td>
+                        <td>Trạng thái</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ProductId</td>
+                            <td>@item.Name</td>
+                            <td><img src="@Url.Content("~/image/" + item.Photo)" width="100" /></td>
+                            <td><input type="text" class="txtQuantity" data-id="@item.ProductId" value="@item.Quantity" onchange="@item.Quantity" /></td>
+                            <td>@item.Price.GetValueOrDefault(0).ToString("N0")</td>
+                            <td>@string.Format("{0:#,###.##}", ((item.Price - (item.Price * item.Discount * 0.01)) * item.Quantity))</td>
+                            <td style="color:darkslategray">@item.NameStatus</td>
+                            <td><a href="/Cart/DeleteItem?id=@item.OrderDetaiId" data-id="@item.ProductId">Hủy đơn hàng</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <hr />
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+    </div>
+</div>
+

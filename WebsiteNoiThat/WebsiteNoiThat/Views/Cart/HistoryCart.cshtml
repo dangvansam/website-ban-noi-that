@@ -1,0 +1,78 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<WebsiteNoiThat.Models.HistoryCart>
+
+@{
+    ViewBag.Title = "Lịch sử giao dịch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script src="~/Scripts/cartcontroller.js"></script>
+
+}
+
+<div class="content">
+    <div class="section group">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Hình ảnh</th>
+                        <th>Số lượng</th>
+                        <th>Giá sau khi giảm bằng thẻ tích điểm)</th>
+                        <th>Khuyến mãi</th>
+                        <th>Thành tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Hủy đơn hàng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ProductId</td>
+                            <td>@item.Name</td>
+                            <td><img src="@Url.Content("~/image/" + item.Photo)" width="100" /></td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price.GetValueOrDefault(0).ToString("N0")₫</td>
+
+                            @*@if(item.Discount>0 && item.EndDate>DateTime.Now)*@
+                            @if(item.Discount>0)
+                            {
+                              <td style="color:crimson">@item.Discount %</td>
+                            }
+                            else
+
+                            {
+                                <td>Không</td>
+                            }
+                        <td>@string.Format("{0:#,###.##}", ((item.Price - (item.Price * item.Discount * 0.01)) * item.Quantity))₫</td>
+                            <td style="color:darkslategray">@item.NameStatus</td>
+                            <td><a href="/Cart/DeleteItem?id=@item.OrderDetaiId" data-id="@item.ProductId" class="btn btn-outline-danger">Hủy đơn hàng</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <hr />
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+    </div>
+</div>
+<div style="clear:both;"></div>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="Menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("HistoryCart", new { page = page }))
+    </div>
+    <style>
+        .Menutrang li {
+            display: inline;
+        }
+    </style>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Models.EF.User>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h2>Danh sách nhân viên</h2>
+<p><a href="@Url.Action("Add", "User")" class="btn btn-primary" style="margin-top:10px;margin-bottom:10px;">Thêm nhân viên</a></p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+        <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Mã khách hàng</th>
+                    <th>Họ tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Số điện thoại</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Mật khẩu</th>
+                    <th>Email</th>
+                    <th>Quyền</th>
+                    <th>Trạng thái</th>
+                    <th>Chỉnh sửa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr class="Search">
+                    <td> @item.UserId</td>
+                    <td> @item.Name</td>
+                    <td>@item.Address</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Username</td>
+                    <td>******</td>
+                    <td>@item.Email</td>
+                    <td>@item.GroupId</td>
+                    <td>@item.Status</td>
+                    @*<td>
+                        <a href="/Admin/User/Edit?UserId=@item.UserId"><span class="fa fa-edit"></span></a>
+                        <a href="/Admin/User/Delete?UserId=@item.UserId"><span class="far fa-trash-alt"></span></a>
+                    </td>*@
+                    <td width="120px;">
+                        <input type="button" class="btn btn-sm btn-primary" value="Sửa" onclick="location.href='/Admin/User/Edit?UserId=@item.UserId'" /> |
+                        <input type="button" class="btn btn-sm btn-danger" value="Xóa" onclick="location.href='/Admin/User/Delete?UserId=@item.UserId'" />
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Content/DataTable/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/DataTable/js/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $('#example').DataTable();
+</script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+

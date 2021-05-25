@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="boxmain">
+    @Html.Action("NewProduct", "Product")
+    @Html.Action("SaleProduct", "Product")
+    @Html.Action("CateKorea", "Product")
+    @Html.Action("CateHavana", "Product")
+</div>

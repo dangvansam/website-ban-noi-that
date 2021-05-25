@@ -1,0 +1,82 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.PagedList<Models.EF.Product>
+@{
+
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Noidungmenu{
+
+    <div class="ct-boxmain row m0">
+        @{ int i = 0;
+            foreach (var sp in Model)
+            {
+                i++;
+                if (sp.Discount != 0 && sp.EndDate > DateTime.Now && sp.StartDate < DateTime.Now)
+                {
+                    <div class="col-xs-6 col-sm-4 col-md-3 p5">
+                        <div class="boxsp">
+                            <div class="imgsp">
+                                <a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })"><img class="imgproduct" style="width:200px;height:150px;" src="@Url.Content("~/image/" + sp.Photo)"></a>
+                                <div class="img-label">
+                                    <img style="width:50px;height:50px;" src="~/image/sale-icon.png">
+                                </div>
+                            </div>
+                            <div class="namesp">
+                                <a href="">@sp.Name</a>
+                            </div>
+                            <div class="pricesp">
+                            <i style="color:crimson">Khuyến mãi @sp.Discount % @((sp.Price - (sp.Price * sp.Discount * 0.01)).GetValueOrDefault(0).ToString("N0"))₫</i>
+                            <br/>
+                            <strike style="color:dimgray"> @sp.Price.GetValueOrDefault(0).ToString("N0")₫</strike></div>
+                            <p>Áp dụng từ ngày @string.Format("{0:d}", sp.StartDate) - @string.Format("{0:d}", sp.EndDate)</p>
+                            <div class="button-hd">
+                                <a href="/them-gio-hang?ProductId=@sp.ProductId&quantity=1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                @*<a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })"><i class="fa fa-eye" aria-hidden="true"></i></a>*@
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="col-xs-6 col-sm-4 col-md-3 p5">
+                        <div class="boxsp">
+                            <div class="imgsp">
+                                <a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId }) " data-toggle="tooltip" title="@sp.Name"><img class="imgproduct" style="width:200px;height:160px;" src="@Url.Content("~/image/" + sp.Photo)"></a>
+                            </div>
+                            <div class="namesp">
+                                <a href="">@sp.Name</a>
+                            </div>
+                            <div class="pricesp">@sp.Price.GetValueOrDefault(0).ToString("N0")₫</div>
+                            <div class="button-hd">
+                                <a href="/them-gio-hang?ProductId=@sp.ProductId&quantity=1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                @*<a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })"><i class="fa fa-eye" aria-hidden="true"></i></a>*@
+                            </div>
+                        </div>
+                    </div>
+                }
+                if (i % 8 == 0)
+                {
+                    <div style="clear:both;"></div>
+                }
+            }
+        }
+    </div>
+}
+<div style="clear:both;"></div>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="Menutrang">
+    @Html.PagedListPager(Model, page => Url.Action("SearchFocus", new { page = page, check1=ViewBag.Check1, check2 = ViewBag.Check2, check3 = ViewBag.Check3, check4 = ViewBag.Check4 }))
+</div>
+<style>
+    .Menutrang li {
+        display: inline;
+    }
+</style>
+
+
+

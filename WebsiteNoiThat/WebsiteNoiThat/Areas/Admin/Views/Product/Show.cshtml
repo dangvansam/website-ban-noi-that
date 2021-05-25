@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebsiteNoiThat.Models.ProductViewModel>
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<h2>Danh sách sản phẩm</h2>
+<hr />
+<p>
+    <a href="@Url.Action("Add", "Product")" class="btn btn-primary" style="margin-top:10px; margin-bottom:10px;">Thêm sản phẩm</a>
+</p>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Mã SP</th>
+                        <th>Tên SP</th>
+                        <th>Hình ảnh</th>
+                        <th>Mô tả</th>
+                        <th>Danh mục SP</th>
+                        <th>Nhà cung cấp</th>
+                        <th>Số lượng</th>
+                        <th>Khuyến mãi</th>
+                        <th>Giá</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="Search">
+                            <td style="text-align:center;">@item.ProductId</td>
+                            <td style="text-align:center;">@item.Name</td>
+                            <td style="text-align:center;"><img style="height:100px" src="@Url.Content("~/image/" + item.Photo)" alt=""></td>
+                            <td style="text-align:center;">@item.Description</td>
+                            <td style="text-align:center;">@item.CateName</td>
+                            <td style="text-align:center;">@item.ProviderName</td>
+                            <td style="text-align:center;">@item.Quantity</td>
+                            <td style="text-align:center;">@item.Discount%</td>
+                            <td style="text-align:center;">@item.Price.GetValueOrDefault(0).ToString("N0")₫</td>
+                            <td>
+                                <a href="/Admin/Product/Edit?ProductId=@item.ProductId"><span class="fa fa-edit"></span></a>
+                                <a href="/Admin/Product/Delete?ProductId=@item.ProductId" onclick="return confirm('Xác nhận xoá?');"><span class="fa fa-trash-alt"></span></a>
+                                @*<div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure want to delete this item?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a asp-page-handler="Delete" asp-route-Id="@item.ProductId" id="deleteBtn" class="btn bg-danger mr-1">Xoá</a>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Content/DataTable/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/DataTable/js/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $('#example').DataTable();
+</script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>

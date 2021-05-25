@@ -1,0 +1,110 @@
+﻿@model Models.EF.User
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content" style="text-align:center">
+    <div class="section group">
+        @if (ViewBag.ListItem.Count > 0)
+        {
+            <h3 id="title_spmoi" style="text-align:center;">Giỏ hàng</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Mã SP</th>
+                        <th>Tên SP</th>
+                        @*<th>Ảnh SP</th>*@
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Khuyến mãi</th>
+                        <th>Thành tiền</th>
+                        @*<th></th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ListItem)
+                    {
+                        <tr>
+                            <td>@item.Product.ProductId</td>
+                            <td>@item.Product.Name</td>
+                            @*<td><img src="@Url.Content("~/image/" + item.Product.Photo)" width="100" /></td>*@
+                            <td>@item.Quantity</td>
+                            <td>@item.Product.Price.ToString("N0")₫</td>
+                            <td>@item.Product.Discount %</td>
+                            <td>@string.Format("{0:#,###.##}", ((item.Product.Price - (item.Product.Price * item.Product.Discount * 0.01)) * item.Quantity))₫</td>
+                            @*<td style="color:darkslategray">@ViewBag.Status</td>*@
+                            @*<td><a href="#" data-id="@item.Product.ProductId" class="btn btn-danger">Xoá</a></td>*@
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a style="font-weight:bold; text-align:right;">Tổng tiền thanh toán: <span style="color:crimson">@ViewBag.total.ToString("N0")₫</span></a>
+            <p></p>
+        }
+        else
+        {
+            <hr />
+            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+        }
+
+    </div>
+    @if (ViewBag.ListItem.Count > 0)
+    {
+        <div class="section group">
+            <h3 id="title_spmoi" style="text-align:center;">Thanh toán</h3>
+
+            <div class="col-md">
+                @using (Html.BeginForm("PayBy", "Cart", FormMethod.Post))
+                {
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.CheckBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", @required = "" } })
+                                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                    Tôi đồng ý thông tin trên
+                                </div>
+                            </div>*@
+                        @*<input type="checkbox" name="ischeck" id="check" value="true" />Sử dụng thẻ tích điểm*@
+                    </div>
+                    @*<button onclick="href='/gio-hang'" class="btn btn-secondary">Tiếp tục mua hàng</button>*@
+                    <button type="submit" class="btn btn-primary">Gửi đơn hàng</button>
+                }
+            </div>
+
+        </div>
+    }
+</div>
+
+
+
+

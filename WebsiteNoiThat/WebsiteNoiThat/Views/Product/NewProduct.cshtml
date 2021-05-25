@@ -1,0 +1,79 @@
+﻿@model  List<Models.EF.Product>
+
+<link href="~/Content/css/style.css" rel="stylesheet" />
+
+<h3 id="title_spmoi">SẢN PHẨM MỚI</h3>
+
+<div class="row">
+    <div id="spmoi" class="owl-carousel">
+        @{ int i = 0;
+            foreach (var sp in Model)
+            {
+                i++;
+                    <div class="item">
+                        <div class="boxsp">
+                            <div class="imgsp">
+                                <a href="@Url.Action("DetailProduct", new { @Id = sp.ProductId })" data-toggle="tooltip" title="@sp.Name"><img class="imgproduct" style="width:150px;height:200px;" src="@Url.Content("~/image/" + sp.Photo)"></a>
+                                <div class="img-label">
+                                    <img src="~/image/hot.png">
+                                </div>
+                            </div>
+                            <div class="namesp">
+                                <a href="">@sp.Name</a>
+                            </div>
+                            <div class="pricesp">@sp.Price.GetValueOrDefault(0).ToString("N0")₫</div>
+                            <div class="button-hd">
+                                <a href="/them-gio-hang?productid=@sp.ProductId&quantity=1"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                @*<a href="@Url.Action("DetailProduct", "Product", new { @Id = sp.ProductId })"><i class="fa fa-eye" aria-hidden="true"></i></a>*@
+                            </div>
+                        </div>
+                    </div>
+                
+                if (i % 4 == 0)
+                {
+                        <div style="clear:both;"></div>
+                    }
+
+
+
+                }
+        }
+
+    </div>
+    </div>
+        @*<div id="noidung">
+            @{ int i = 0;
+                foreach (var sp in Model)
+                {
+                    i++;
+                    <div id="Sanpham">
+
+                        <table class="khung">
+                            <tr>
+                                <td><img src="@Url.Content("~/image/" + sp.Photo)" alt="image" /></td>
+                            </tr>
+                            <tr>
+                                <td><b>@sp.Name</b></td>
+                            </tr>
+                            <tr>
+                                <td>Giá: @sp.Price</td>
+                            </tr>
+                            <tr>
+                                <td><a href="@Url.Action("DetailProduct","Product",new { @Id=sp.ProductId})">Xem chi tiết...</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    if (i % 4 == 0)
+                    {
+                        <div style="clear:both;"></div>
+                    }
+
+
+
+                }
+            }
+
+        </div>*@
+
+
+

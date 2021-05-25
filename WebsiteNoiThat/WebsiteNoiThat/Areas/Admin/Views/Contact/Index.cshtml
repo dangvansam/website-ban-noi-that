@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Models.EF.Contact>
+
+@{
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#checkall').click(function () {
+            if ($(this).is(":checked"))
+                $('.checkitem').prop('checked', true);
+            else
+                $('.checkitem').prop('checked', false);
+
+        });
+    });
+</script>
+<h2>Liên hệ</h2>
+1: Đã xử lý
+0: Chưa xử lý
+@using (Html.BeginForm("Delete", "Newss", FormMethod.Post))
+{
+    <div style="width: 1100px; height:300px; ">
+
+
+        <table id="example" class="table table-striped table-bordered table-hover" style="width:90%">
+            <thead>
+                <tr>
+                    <th>Mã liên hệ</th>
+                    <th>Nội dung</th>
+                    <th>Người gửi</th>
+                    <th>Trạng thái</th>
+                    <th>Xóa tất cả <input type="checkbox" id="checkall" /></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="Search">
+                        <td> @item.ContactId</td>
+                        <td> @item.Content</td>
+                        <td>@item.EmailCC</td>
+
+                        <td>@item.Status</td>
+
+
+                        <td><input type="checkbox" class="checkitem" value="@item.ContactId" name="ContactId" /></td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Mã liên hệ</th>
+                    <th>Nội dung</th>
+                    <th>Người gửi</th>
+                    <th>Trạng thái</th>
+                    <th>Xóa tất cả <input type="checkbox" id="checkall" /></th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="col-sm-offset-10">
+
+            <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?')" />
+        </div>
+
+    </div>
+}
+
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/DataTable/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/DataTable/js/dataTables.bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $('#example').DataTable();
+    </script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+
+

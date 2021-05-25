@@ -1,0 +1,28 @@
+﻿@model List<WebsiteNoiThat.Models.CartItem>
+
+<div class="cart">
+    <div class="discart">
+        @*<a>@Model.Count</a>*@
+        <a class="dot"><span style="font-weight: bold; color: red;">@Model.Count</span></a>
+
+        @*<span class="dot"><a class="count_products_cart">@Model.Count</a></span>*@
+    </div>
+    <div class="top-cart-content" style="border-radius:5px;">
+        <a style="font-weight:bold">Giỏ hàng</a>
+        <br/>
+            @foreach(var item in Model)
+            {
+            <a>@item.Product.Name x </a>@item.Quantity<br/>
+            }
+    </div>
+</div>
+
+<style>
+    .dot {
+        height: 21px;
+        width: 21px;
+        background-color: gainsboro;
+        border-radius: 30%;
+        display: block;
+    }
+</style>

@@ -1,0 +1,19 @@
+{
+  "FilePath": "d:\\CNWebNC\\NguyenThiNgoc_HTTT2\\WebsiteNoiThat\\WebsiteNoiThat\\WebsiteNoiThat.csproj",
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": null,
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}
