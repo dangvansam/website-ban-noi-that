@@ -5,13 +5,13 @@ Thay đổi đường dẫn db trong file `Web.config` cho đúng với máy: `d
 Run project trong Visual Studio (2019) đã cài đặt EntityFramework
 
 ## Ảnh demo:
-![dangnhap](/demo/dangnhap.PNG)
-![trangchu](/demo/trangchu.PNG)
-![trangchu2](/demo/trangchu2.PNG)
-![myaccount](/demo/myaccount.PNG)
-![giohang](/demo/giohang.PNG)
-![chitietsanpham](/demo/chitietsanpham.PNG)
-![admin-sanpham](/demo/admin-sanpham.PNG)
-![admin-dondathang](/demo/admin-dondathang.PNG)
-![admin-chitiethoadon](/demo/admin-chitiethoadon.PNG)
-![admin-nhanvien](/demo/admin-nhanvien.PNG)
+![dangnhap](/Demo/dangnhap.PNG)
+![trangchu](/Demo/trangchu.PNG)
+![trangchu2](/Demo/trangchu2.PNG)
+![myaccount](/Demo/myaccount.PNG)
+![giohang](/Demo/giohang.PNG)
+![chitietsanpham](/Demo/chitietsanpham.PNG)
+![admin-sanpham](/Demo/admin-sanpham.PNG)
+![admin-dondathang](/Demo/admin-dondathang.PNG)
+![admin-chitiethoadon](/Demo/admin-chitiethoadon.PNG)
+![admin-nhanvien](/Demo/admin-nhanvien.PNG)
